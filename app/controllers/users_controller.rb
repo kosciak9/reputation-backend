@@ -1,32 +1,44 @@
 class UsersController < ApplicationController
+
   def index
     @users = User.all
-    render json: @users
+    json_response(@users)
   end
 
   def create
     @user = User.create(user_params)
 
     if @user.save
-      render json: @user, status: :created
+      json_response(@user, :created)
     else
       render json: @user.errors, status: :unprocessable_entity
     end
   end
 
   def show
-    render json: @user
+    @user = User.find(params[:id])
+    json_response(@user)
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def edit
+    @user = user.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
-      render json: @user
+      json_response(@user)
     else
       render json: @user.errors, status: :unprocessable_entity
     end
   end 
 
   def destroy
+    @user = User.find(params[id])
     @user.destroy
   end
 

@@ -10,22 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_171307) do
-  def up
-    create_table "users", force: :cascade do |t|
-      t.float "reputation_score"
-      t.string "name"
-      t.integer "age"
-      t.string "login"
-      t.string "password"
-      t.string "email"
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-    end
+ActiveRecord::Schema.define(version: 2019_09_14_201341) do
+
+  create_table "opinions", force: :cascade do |t|
+    t.boolean "verdict"
+    t.string "reason"
+    t.boolean "result"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_opinions_on_user_id"
   end
 
-  def down
-    drop_table :users
+  create_table "users", force: :cascade do |t|
+    t.float "reputation_score"
+    t.string "name"
+    t.integer "age"
+    t.string "login"
+    t.string "password"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
