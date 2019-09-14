@@ -7,4 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
-User.create(reputation_score:2.12,name:"test", age:12,login:"test", password:"test", email:"test")
+arek = User.create(reputation_score:2.12,name:"Arek", age:12,login:"test", password:"test", email:"test")
+
+opinia = arek.opinions.create(verdict: true, reason: "test", result: false )

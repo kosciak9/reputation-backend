@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  verdict: false
+  reason: MyString
+  result: false
+  user: one
+
+two:
+  verdict: false
+  reason: MyString
+  result: false
+  user: two
