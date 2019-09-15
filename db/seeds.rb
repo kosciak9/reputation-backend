@@ -11,10 +11,10 @@ arek = User.create(reputation_score:2.12,name:"Arek", age:12,login:"test", passw
 
 parek = User.create(reputation_score:22.12,name:"parek", age:122,login:"dst", password:"tds", email:"tdada")
 
-twiter = Tweet.create(tw_id:"test", trustscore:3.14, category:"test", verified:"false", verdict:"false", tweet_url:"test", html_content:"test", data_posted:"test", tweet_username:"test", likes_delta:7)
+twiter = Tweet.create(tw_id:"test", trustscore:3.14, category:"test", verified:"false", verdict:"false", tweet_url:"test", html_content:"test", data_posted:"test", tweet_username:"test", likes_delta:7, subscribers:[1,2])
 
 opinia = arek.opinions.create(verdict: true, reason: "test", result: false, tweet_id: 1, user_id: 1 )
-opinia = arek.opinions.create(verdict: true, reason: "test 2", result: false, tweet_id: 1, user_id: 1 )
+opinia2 = arek.opinions.create(verdict: true, reason: "test 2", result: false, tweet_id: 1, user_id: 1 )
 
 # opin = parek.opinions.create(verdict: true, reason: "test", result: false)
 

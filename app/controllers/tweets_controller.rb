@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
 
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all.where(subscribers.include? params[:user_id]
     json_response(@tweets)
   end
 

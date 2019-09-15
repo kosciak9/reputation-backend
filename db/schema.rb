@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_223333) do
+ActiveRecord::Schema.define(version: 2019_09_15_201341) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "opinions", force: :cascade do |t|
     t.boolean "verdict"
     t.string "reason"
     t.boolean "result"
-    t.integer "user_id"
-    t.integer "tweet_id"
+    t.bigint "user_id"
+    t.bigint "tweet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tweet_id"], name: "index_opinions_on_tweet_id"
@@ -35,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_09_14_223333) do
     t.string "data_posted"
     t.string "tweet_username"
     t.integer "likes_delta"
+    t.integer "subscribers", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,4 +54,6 @@ ActiveRecord::Schema.define(version: 2019_09_14_223333) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "opinions", "tweets"
+  add_foreign_key "opinions", "users"
 end

@@ -11,6 +11,7 @@ class CreateTweets < ActiveRecord::Migration[5.2]
       t.string :data_posted
       t.string :tweet_username
       t.integer :likes_delta
+      t.integer :subscribers, array: true, default: []
 
       t.timestamps
     end

@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
-    json_response(@users)
+      @users = User.all
+      json_response(@users)
   end
 
   def create
-    @user = User.create(user_params)
+
+    @user = User.create(@params)
 
     if @user.save
       json_response(@user, :created)
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.update(@params)
       json_response(@user)
     else
       render json: @user.errors, status: :unprocessable_entity
