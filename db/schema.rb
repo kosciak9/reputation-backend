@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(version: 2019_09_14_223333) do
     t.string "reason"
     t.boolean "result"
     t.integer "user_id"
+    t.integer "tweet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["tweet_id"], name: "index_opinions_on_tweet_id"
     t.index ["user_id"], name: "index_opinions_on_user_id"
   end
 
