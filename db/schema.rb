@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_201341) do
+ActiveRecord::Schema.define(version: 2019_09_14_223333) do
 
   create_table "opinions", force: :cascade do |t|
     t.boolean "verdict"
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 2019_09_14_201341) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_opinions_on_user_id"
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.string "tw_id"
+    t.float "trustscore"
+    t.string "category"
+    t.boolean "verified"
+    t.boolean "verdict"
+    t.string "tweet_url"
+    t.string "html_content"
+    t.string "data_posted"
+    t.string "tweet_username"
+    t.integer "likes_delta"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
