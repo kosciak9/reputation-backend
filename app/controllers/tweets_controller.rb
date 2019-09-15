@@ -14,7 +14,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.create(@params)
+    @tweet = Tweet.create(params)
 
     if @tweet.save
       json_response(@tweet, :created)
@@ -38,7 +38,7 @@ class TweetsController < ApplicationController
 
   def update
     @tweet = Tweet.find(params[:id])
-    if @tweet.update(@params)
+    if @tweet.update(params)
       json_response(@tweet)
     else
       render json: @tweet.errors, status: :unprocessable_entity

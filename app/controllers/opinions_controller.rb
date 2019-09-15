@@ -12,7 +12,7 @@ class OpinionsController < ApplicationController
   end
 
   def create
-    @opinion = @user.opinions.create(@params)
+    @opinion = @user.opinions.create(params)
   end
 
   def destroy
