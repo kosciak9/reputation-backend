@@ -4,7 +4,6 @@ class TweetsController < ApplicationController
     if params[:user_id]
       @tweets = Tweet.all.select do | tweet | 
         if tweet.subscribers?
-          puts params[:user_id]
           tweet.subscribers.include? params[:user_id].to_i
         end
       end
