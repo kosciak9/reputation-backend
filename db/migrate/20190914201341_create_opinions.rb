@@ -5,7 +5,7 @@ class CreateOpinions < ActiveRecord::Migration[5.2]
       t.string :reason
       t.boolean :result
       t.references :user, foreign_key: true
-
+      t.string :tweet
       t.timestamps
     end
   end
