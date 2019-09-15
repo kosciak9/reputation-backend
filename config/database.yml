@@ -24,6 +24,4 @@ efault: &default
 
 production:
   <<: *default
-  database: reputation_backend_production
-  username: reputation_backend
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
