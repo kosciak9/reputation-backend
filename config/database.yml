@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 #
 
-efault: &default
+default: &default
   adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
