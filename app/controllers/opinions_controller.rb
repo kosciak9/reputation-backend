@@ -1,15 +1,18 @@
 class OpinionsController < ApplicationController
   before_action :set_user
- # before_action :set_tweet
+  before_action :set_tweet
  # before_action :set_user_opinion
 
   def index
-    json_response(@user.opinions)
+    if @user
+      json_response(@user.opinions)
+    else
+      json_response(@tweet.opinions)
+    end
   end
 
   def create
-    #@user = User.find(params[:user_id])
-    @opinion - @user.opinions.create(opinion_params)
+    @opinion = @user.opinions.create(opinion_params)
   end
 
   def destroy
@@ -20,7 +23,11 @@ class OpinionsController < ApplicationController
 
   private
   def set_user
-    @user = User.find(params[:user_id])
+    begin
+      @user = User.find(params[:user_id])
+    rescue
+      @user = nil
+    end
   end
 
   def set_tweet
